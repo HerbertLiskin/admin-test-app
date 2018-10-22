@@ -23,7 +23,9 @@ const Users = ({ users }) => {
                         ? (<img src={user.AvatarURL} alt={user.ID}/>)
                         : (<span className={styles.fakeAvatar}>This is AVATAR</span>)
                 }
-                <div><Link to={`/user/${user.ID}`}>go to user</Link></div>
+                <div>
+                    <Link to={`/user/${user.ID}`}>go to user</Link>
+                </div>
             </div>
         )
     })
