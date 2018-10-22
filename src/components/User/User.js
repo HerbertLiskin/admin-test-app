@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import isNull from 'lodash/isNull'
 
@@ -12,7 +12,7 @@ const propTypes = {
 }
 
 export class User extends React.PureComponent {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchUser(this.props.userId)
     }
 
@@ -26,7 +26,7 @@ export class User extends React.PureComponent {
                             ? (<img src={this.props.user.AvatarURL} alt={this.props.user.ID}/>)
                             : null
                     }
-                    <div><Link to={`/`}>go to root -></Link></div>
+                    <div><Link to={'/'}>go to root</Link></div>
                 </div>
             )
             : (<span>is fetching</span>)

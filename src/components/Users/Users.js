@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import map from 'lodash/map'
 import isNull from 'lodash/isNull'
@@ -23,7 +23,7 @@ const Users = ({ users }) => {
                         ? (<img src={user.AvatarURL} alt={user.ID}/>)
                         : (<span className={styles.fakeAvatar}>This is AVATAR</span>)
                 }
-                <div><Link to={`/user/${user.ID}`}>go to user -></Link></div>
+                <div><Link to={`/user/${user.ID}`}>go to user</Link></div>
             </div>
         )
     })
