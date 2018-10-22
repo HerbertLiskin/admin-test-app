@@ -3,6 +3,7 @@ import {
     SET_USER,
     SET_USER_FETCHING,
     REMOVE_USER,
+    ADD_USER,
 } from '../actions'
 
 import cloneDeep from 'lodash/cloneDeep'
@@ -33,6 +34,16 @@ function users(state = initialState, action) {
                 ...state,
                 userIsFetching: action.userIsFetching,
             }
+
+        case ADD_USER:
+            users = cloneDeep(state.users)
+            users.unshift(action.user)
+
+            return {
+                ...state,
+                users,
+            }
+
         case REMOVE_USER:
             users = cloneDeep(state.users)
             

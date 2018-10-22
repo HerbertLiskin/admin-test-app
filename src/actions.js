@@ -4,6 +4,7 @@ export const SET_USERS = 'SET_USERS'
 export const SET_USER = 'SET_USER'
 export const SET_USER_FETCHING = 'SET_USER_FETCHING'
 export const REMOVE_USER = 'REMOVE_USER'
+export const ADD_USER = 'ADD_USER'
 
 const fetch = createApolloFetch({
     uri: 'https://c3interview.danshin.pro/graphql',
@@ -40,7 +41,6 @@ export function fetchUser(id) {
 
 export function deletUser(id) {
     return (dispatch) => {
-        // DeleteUser(id: ID!): User
         fetch({
             query: `mutation DeleteUser($id: ID!)  {
                 DeleteUser(id: $id) {
@@ -51,13 +51,40 @@ export function deletUser(id) {
         }).then((response) => {
             dispatch(removeUser(response.data.DeleteUser.ID))
         })
-        
     }
 }
+
+export function createUser(val) {
+    return (dispatch) => {
+        fetch({
+            query: `mutation CreateUser($input: CreateUserInput!)  {
+                CreateUser(input: $input) {
+                    ID, Login, AvatarURL 
+                }
+            }`,
+            variables: { 
+                input: {
+                    Login: val,
+                    AvatorURL: null,
+                }, 
+            },
+        }).then((response) => {
+            dispatch(addUser(response.data.CreateUser))
+        })
+    }
+}
+
 export function removeUser(id) {
     return {
         type: REMOVE_USER,
         id,
+    }
+}
+
+export function addUser(user) {
+    return {
+        type: ADD_USER,
+        user,
     }
 }
 

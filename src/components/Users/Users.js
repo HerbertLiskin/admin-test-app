@@ -18,7 +18,7 @@ const Users = ({ users, deletUser }) => {
                 key={`user-${user.ID}`}
                 className={styles.container}
             >
-                <div>ID: {user.ID}</div>
+                <div>ID: {user.Login}</div>
                 {
                     !isNull(user.AvatarURL)
                         ? (<img src={user.AvatarURL} alt={user.ID}/>)

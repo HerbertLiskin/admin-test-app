@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { 
     fetchUsers,
     deletUser, 
+    createUser,
 } from '../actions'
 
 import Root from '../components/Root'
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         deletUser: (id) => {
             dispatch(deletUser(id))
+        },
+        createUser: (val) => {
+            dispatch(createUser(val))
         },
     }
 }

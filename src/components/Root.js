@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Users from './Users/Users'
+import AddUser from './AddUser/AddUser'
 
 import isEmpty from 'lodash/isEmpty'
 
@@ -9,6 +10,7 @@ const propTypes = {
     users: PropTypes.array,
     fetchUsers: PropTypes.func.isRequired,
     deletUser: PropTypes.func.isRequired,
+    createUser: PropTypes.func.isRequired,
 }
 
 export class Root extends React.PureComponent {
@@ -19,10 +21,14 @@ export class Root extends React.PureComponent {
 
     render() {
         return (
-            <Users 
-                users={this.props.users}
-                deletUser={this.props.deletUser}
-            />
+            <div>
+                <AddUser createUser={this.props.createUser}/>
+                <Users 
+                    users={this.props.users}
+                    deletUser={this.props.deletUser}
+                />  
+            </div>
+            
         )
     }
 }
