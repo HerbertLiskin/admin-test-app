@@ -2,9 +2,10 @@ import {
     SET_USERS,
     SET_USER,
     SET_USER_FETCHING,
+    SET_USERS_FETCHING,
     REMOVE_USER,
     ADD_USER,
-} from '../actions'
+} from '../actions/users'
 
 import cloneDeep from 'lodash/cloneDeep'
 import remove from 'lodash/remove'
@@ -13,6 +14,7 @@ let initialState = {
     users: [],
     user: null,
     userIsFetching: true,
+    usersIsFetching: true,
 }
 
 function users(state = initialState, action) {
@@ -33,6 +35,12 @@ function users(state = initialState, action) {
             return {
                 ...state,
                 userIsFetching: action.userIsFetching,
+            }
+        
+        case SET_USERS_FETCHING: 
+            return {
+                ...state,
+                usersIsFetching: action.usersIsFetching,
             }
 
         case ADD_USER:

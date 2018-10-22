@@ -3,6 +3,7 @@ import { createApolloFetch } from 'apollo-fetch'
 export const SET_USERS = 'SET_USERS'
 export const SET_USER = 'SET_USER'
 export const SET_USER_FETCHING = 'SET_USER_FETCHING'
+export const SET_USERS_FETCHING = 'SET_USERS_FETCHING'
 export const REMOVE_USER = 'REMOVE_USER'
 export const ADD_USER = 'ADD_USER'
 
@@ -12,11 +13,14 @@ const fetch = createApolloFetch({
 
 export function fetchUsers() { 
     return (dispatch) => {
+        dispatch(setUsersFetching(true))
+        
         fetch({
             query: '{ Users { ID, Login, AvatarURL } }',
         })
         .then((response) => {
             dispatch(setUsers(response.data.Users))
+            dispatch(setUsersFetching(false))
         })
     }
 }
@@ -54,7 +58,7 @@ export function deletUser(id) {
     }
 }
 
-export function createUser(val) {
+export function createUser(val, avator) {
     return (dispatch) => {
         fetch({
             query: `mutation CreateUser($input: CreateUserInput!)  {
@@ -65,7 +69,7 @@ export function createUser(val) {
             variables: { 
                 input: {
                     Login: val,
-                    AvatorURL: null,
+                    AvatorURL: avator,
                 }, 
             },
         }).then((response) => {
@@ -93,6 +97,13 @@ export function setUserFetching(userIsFetching) {
         type: SET_USER_FETCHING,
         userIsFetching,
         
+    }
+}
+
+export function setUsersFetching(usersIsFetching) {
+    return {
+        type: SET_USERS_FETCHING,
+        usersIsFetching,
     }
 }
 

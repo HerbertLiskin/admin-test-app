@@ -3,13 +3,14 @@ import {
     fetchUsers,
     deletUser, 
     createUser,
-} from '../actions'
+} from '../actions/users'
 
 import Root from '../components/Root'
 
 const mapStateToProps = (state) => {
     return {
         users: state.users.users,
+        usersIsFetching: state.users.usersIsFetching,
     }
 }
 
@@ -21,8 +22,8 @@ const mapDispatchToProps = (dispatch) => {
         deletUser: (id) => {
             dispatch(deletUser(id))
         },
-        createUser: (val) => {
-            dispatch(createUser(val))
+        createUser: (val, avator) => {
+            dispatch(createUser(val, avator))
         },
     }
 }

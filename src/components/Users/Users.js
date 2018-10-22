@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import map from 'lodash/map'
 import isNull from 'lodash/isNull'
 
-import styles from './Users.scss'
+import styles from './styles.scss'
 
 const propTypes = {
     users: PropTypes.array,
@@ -18,7 +18,7 @@ const Users = ({ users, deletUser }) => {
                 key={`user-${user.ID}`}
                 className={styles.container}
             >
-                <div>ID: {user.Login}</div>
+                <div>Login: {user.Login}</div>
                 {
                     !isNull(user.AvatarURL)
                         ? (<img src={user.AvatarURL} alt={user.ID}/>)

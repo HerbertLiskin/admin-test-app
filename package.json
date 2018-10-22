@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "apollo-fetch": "^0.7.0",
+    "classnames": "^2.2.6",
     "fs-extra": "^5.0.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.0",

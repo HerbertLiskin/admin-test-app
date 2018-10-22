@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.preloaderImage {
+    background-image: url(./images/preloader.gif);
+    background-size: contain;
+
+    &.small {
+        width: 150px;
+        height: 150px;
+    }
+
+    &.medium {
+        width: 250px;
+        height: 250px;
+    }
+}
