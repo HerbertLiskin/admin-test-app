@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { fetchUsers } from '../actions'
 import Root from '../components/Root'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         users: state.users.users,
     }

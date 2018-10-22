@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchUser, setFetching } from '../actions'
+import { fetchUser } from '../actions'
 import User from '../components/User/User'
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,9 +15,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchUser: (id) => {
             dispatch(fetchUser(id))
         },
-        // setUserFetching: (isFetching) => {
-        //     dispatch(setFetching(isFetching))
-        // }
     }
 }
 

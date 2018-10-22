@@ -1,4 +1,4 @@
-import {createApolloFetch} from 'apollo-fetch'
+import { createApolloFetch } from 'apollo-fetch'
 // types
 export const SET_USERS = 'SET_USERS'
 export const SET_USER = 'SET_USER'
@@ -12,9 +12,9 @@ const fetch = createApolloFetch({
 export function fetchUsers() { 
     return (dispatch) => {
         fetch({
-            query: '{ Users { ID, Login, AvatarURL } }'
+            query: '{ Users { ID, Login, AvatarURL } }',
         })
-        .then(response => {
+        .then((response) => {
             dispatch(setUsers(response.data.Users))
         })
     }
@@ -31,7 +31,7 @@ export function fetchUser(id) {
                 }
             }`,
             variables: { id: id },
-        }).then(response => {
+        }).then((response) => {
             dispatch(setUser(response.data.User))
             dispatch(setUserFetching(false))
         })
