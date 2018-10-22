@@ -8,6 +8,7 @@ import isEmpty from 'lodash/isEmpty'
 const propTypes = {
     users: PropTypes.array,
     fetchUsers: PropTypes.func.isRequired,
+    deletUser: PropTypes.func.isRequired,
 }
 
 export class Root extends React.PureComponent {
@@ -20,6 +21,7 @@ export class Root extends React.PureComponent {
         return (
             <Users 
                 users={this.props.users}
+                deletUser={this.props.deletUser}
             />
         )
     }

@@ -3,7 +3,7 @@ import { createApolloFetch } from 'apollo-fetch'
 export const SET_USERS = 'SET_USERS'
 export const SET_USER = 'SET_USER'
 export const SET_USER_FETCHING = 'SET_USER_FETCHING'
-
+export const REMOVE_USER = 'REMOVE_USER'
 
 const fetch = createApolloFetch({
     uri: 'https://c3interview.danshin.pro/graphql',
@@ -35,6 +35,29 @@ export function fetchUser(id) {
             dispatch(setUser(response.data.User))
             dispatch(setUserFetching(false))
         })
+    }
+}
+
+export function deletUser(id) {
+    return (dispatch) => {
+        // DeleteUser(id: ID!): User
+        fetch({
+            query: `mutation DeleteUser($id: ID!)  {
+                DeleteUser(id: $id) {
+                    ID, Login, AvatarURL 
+                }
+            }`,
+            variables: { id },
+        }).then((response) => {
+            dispatch(removeUser(response.data.DeleteUser.ID))
+        })
+        
+    }
+}
+export function removeUser(id) {
+    return {
+        type: REMOVE_USER,
+        id,
     }
 }
 

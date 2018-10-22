@@ -2,7 +2,11 @@ import {
     SET_USERS,
     SET_USER,
     SET_USER_FETCHING,
+    REMOVE_USER,
 } from '../actions'
+
+import cloneDeep from 'lodash/cloneDeep'
+import remove from 'lodash/remove'
 
 let initialState = {
     users: [],
@@ -11,6 +15,8 @@ let initialState = {
 }
 
 function users(state = initialState, action) {
+    let users
+
     switch (action.type) {
         case SET_USERS: 
             return {
@@ -26,6 +32,17 @@ function users(state = initialState, action) {
             return {
                 ...state,
                 userIsFetching: action.userIsFetching,
+            }
+        case REMOVE_USER:
+            users = cloneDeep(state.users)
+            
+            remove(users, (user) => {
+                return user.ID === action.id
+            })
+
+            return {
+                ...state,
+                users,
             }
 
         default:

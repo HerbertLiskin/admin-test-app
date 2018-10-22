@@ -1,5 +1,9 @@
 import { connect } from 'react-redux'
-import { fetchUsers } from '../actions'
+import { 
+    fetchUsers,
+    deletUser, 
+} from '../actions'
+
 import Root from '../components/Root'
 
 const mapStateToProps = (state) => {
@@ -12,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUsers: () => {
             dispatch(fetchUsers())
+        },
+        deletUser: (id) => {
+            dispatch(deletUser(id))
         },
     }
 }

@@ -9,8 +9,9 @@ import styles from './Users.scss'
 
 const propTypes = {
     users: PropTypes.array,
+    deletUser: PropTypes.func.isRequired,
 }
-const Users = ({ users }) => {
+const Users = ({ users, deletUser }) => {
     const usersMap = map(users, (user) => {
         return (
             <div 
@@ -25,6 +26,13 @@ const Users = ({ users }) => {
                 }
                 <div>
                     <Link to={`/user/${user.ID}`}>go to user</Link>
+                </div>
+                <div onClick={
+                    () => {
+                        deletUser(user.ID)
+                    }
+                    }>
+                    DELETE USER
                 </div>
             </div>
         )
