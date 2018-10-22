@@ -12,9 +12,6 @@
     "browser": true,
     "es6": true
   },
-  "globals": {
-    "flushResponses": true
-  },
   "rules": {
     "arrow-parens": ["error", "always"],
     "camelcase": ["error", { "properties": "never" }],

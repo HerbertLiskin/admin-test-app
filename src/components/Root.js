@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 import Users from './Users/Users'
 
@@ -11,7 +11,7 @@ const propTypes = {
 }
 
 export class Root extends React.PureComponent {
-    componentWillMount() {
+    componentDidMount() {
         if(isEmpty(this.props.users))
             this.props.fetchUsers()
     }
