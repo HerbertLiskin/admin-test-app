@@ -10,8 +10,6 @@ const propTypes = {
 }
 
 const Preloader = ({ text, size }) => {
-    // debugger
-    // return (<div>{text}</div>)
     return (
         <div className={styles.container}>
             <div className={
@@ -26,6 +24,6 @@ const Preloader = ({ text, size }) => {
 }
 
 Preloader.propTypes = propTypes
-// Preloader.defaultProps = { size: 'medium' }
+Preloader.defaultProps = { size: 'medium' }
 
 export default Preloader

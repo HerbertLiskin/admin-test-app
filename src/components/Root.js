@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Users from './Users/Users'
 import AddUser from './AddUser/AddUser'
-import Preloader from './UI/Preloader/Preloader'
+import { Preloader } from './UI'
 
 import isEmpty from 'lodash/isEmpty'
 
@@ -12,7 +12,7 @@ const propTypes = {
         PropTypes.shape({
             ID: PropTypes.string.isRequired,
             Login: PropTypes.string.isRequired,
-            AvatorURL: PropTypes.string,
+            AvatarURL: PropTypes.string,
         })
     ),
     usersIsFetching: PropTypes.bool,
@@ -44,7 +44,6 @@ export class Root extends React.PureComponent {
             : (
                 <Preloader 
                     text={'loading'}
-                    size={'medium'}
                 />
                 
             )

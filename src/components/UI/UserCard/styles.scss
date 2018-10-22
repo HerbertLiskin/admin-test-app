@@ -1,0 +1,38 @@
+.container {
+    width: 23%;
+    background-color: #AADFFF;
+    margin: 0 5px 40px 5px;
+    padding: 15px;
+}
+
+.login {
+    min-height: 70px;
+}
+
+.goToUser {
+    display: block;
+    margin: 15px 0;
+    text-align: center;
+    color: #2b50ab;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.delete {
+    cursor: pointer;
+    background-color: #d43535;
+    padding: 14px;
+    color: #fff;
+    text-align: center;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: #ca0000;
+    }
+}
+
+img {
+    width: 100%;
+}

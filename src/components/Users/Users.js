@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+
+import { UserCard } from '../UI'
 
 import map from 'lodash/map'
-import isNull from 'lodash/isNull'
 
 import styles from './styles.scss'
 
@@ -12,34 +12,21 @@ const propTypes = {
     deletUser: PropTypes.func.isRequired,
 }
 const Users = ({ users, deletUser }) => {
-    const usersMap = map(users, (user) => {
+    const UsersMap = map(users, (user) => {
         return (
-            <div 
+            <UserCard 
                 key={`user-${user.ID}`}
-                className={styles.container}
-            >
-                <div>Login: {user.Login}</div>
-                {
-                    !isNull(user.AvatarURL)
-                        ? (<img src={user.AvatarURL} alt={user.ID}/>)
-                        : (<span className={styles.fakeAvatar}>This is AVATAR</span>)
-                }
-                <div>
-                    <Link to={`/user/${user.ID}`}>go to user</Link>
-                </div>
-                <div onClick={
-                    () => {
-                        deletUser(user.ID)
-                    }
-                    }>
-                    DELETE USER
-                </div>
-            </div>
+                id={user.ID}
+                login={user.Login}
+                avatarURL={user.AvatarURL}
+                deletUser={deletUser}
+            />
         )
     })
-
     return (
-        <div>{usersMap}</div>
+        <div className={styles.container}>
+            {UsersMap}
+        </div>
     )
 }
 

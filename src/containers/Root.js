@@ -22,8 +22,8 @@ const mapDispatchToProps = (dispatch) => {
         deletUser: (id) => {
             dispatch(deletUser(id))
         },
-        createUser: (val, avator) => {
-            dispatch(createUser(val, avator))
+        createUser: (val, avatar) => {
+            dispatch(createUser(val, avatar))
         },
     }
 }

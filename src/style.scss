@@ -1,5 +1,9 @@
 .container {
     margin: auto;
-    max-width: 600px;
+    width: 900px;
     font-family: Arial, Helvetica, sans-serif;
+
+    * {
+        box-sizing: border-box;
+    }
 }

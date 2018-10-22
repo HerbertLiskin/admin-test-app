@@ -14,7 +14,7 @@ const fetch = createApolloFetch({
 export function fetchUsers() { 
     return (dispatch) => {
         dispatch(setUsersFetching(true))
-        
+
         fetch({
             query: '{ Users { ID, Login, AvatarURL } }',
         })
@@ -58,7 +58,7 @@ export function deletUser(id) {
     }
 }
 
-export function createUser(val, avator) {
+export function createUser(val, avatar) {
     return (dispatch) => {
         fetch({
             query: `mutation CreateUser($input: CreateUserInput!)  {
@@ -69,7 +69,7 @@ export function createUser(val, avator) {
             variables: { 
                 input: {
                     Login: val,
-                    AvatorURL: avator,
+                    AvatarURL: avatar,
                 }, 
             },
         }).then((response) => {
