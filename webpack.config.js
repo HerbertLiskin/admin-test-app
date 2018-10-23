@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const dev = process.env.NODE_ENV !== 'production' && process.argv.indexOf('-p') === -1;
 
@@ -14,16 +15,16 @@ const DefinePluginConfig = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify('production'),
 });
 
-const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
-  beautify: false,
-  mangle: {
-    screw_ie8: true,
-  },
-  compress: {
-    screw_ie8: true,
-  },
-  comments: false,
-});
+// const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
+//   beautify: false,
+//   mangle: {
+//     screw_ie8: true,
+//   },
+//   compress: {
+//     screw_ie8: true,
+//   },
+//   comments: false,
+// });
 
 module.exports = {
   devServer: {
@@ -38,8 +39,11 @@ module.exports = {
     'react-hot-loader/patch',
     path.join(__dirname, '/src/index.js'),
   ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
@@ -71,5 +75,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ] :
-  [HTMLWebpackPluginConfig, DefinePluginConfig, UglifyJsPluginConfig],
+  [
+    HTMLWebpackPluginConfig, 
+    DefinePluginConfig, 
+    // UglifyJsPluginConfig
+  ],
 };
