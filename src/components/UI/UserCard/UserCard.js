@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import Button from '@material-ui/core/Button'
+
 import isNull from 'lodash/isNull'
 
 import styles from './styles.scss'
@@ -31,14 +33,20 @@ const UserCard = ({ id, login, avatarURL, deletUser }) => {
                 >
                     go to user
             </Link>
-            <div 
-                className={styles.delete}
-                onClick={
-                    () => {
-                        deletUser(id)
+            <div className={styles.delete}>
+                <Button 
+                    variant="contained" 
+                    color="secondary"
+                    size="large" 
+                    onClick={
+                        () => {
+                            deletUser(id)
+                        }
                     }
-                    }>
-                    DELETE USER
+                    // className={classes.button}
+                >
+                    Delet User
+                </Button>
             </div>
         </div>
     )

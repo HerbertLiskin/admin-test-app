@@ -1,5 +1,5 @@
 .container {
-    background-color: #AADFFF;
+    background-color: #AADFFF;  
 }
 
 .login {
@@ -18,16 +18,8 @@
 }
 
 .delete {
-    cursor: pointer;
-    background-color: #d43535;
-    padding: 14px;
-    color: #fff;
     text-align: center;
-    transition: background-color .3s;
-
-    &:hover {
-        background-color: #ca0000;
-    }
+    padding: 0 0 15px;
 }
 
 img {
