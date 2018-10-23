@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import Button from '@material-ui/core/Button'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 import isNull from 'lodash/isNull'
 
@@ -25,7 +26,6 @@ const UserCard = ({ id, login, avatarURL, deletUser }) => {
                     !isNull(avatarURL)
                         ? (<img src={avatarURL} alt={id}/>)
                         : (<img src={placeholder} alt={id}/>)
-                        // : (<span className={styles.fakeAvatar}>This is AVATAR</span>)
                 }
             <Link 
                     className={styles.goToUser}
@@ -43,9 +43,9 @@ const UserCard = ({ id, login, avatarURL, deletUser }) => {
                             deletUser(id)
                         }
                     }
-                    // className={classes.button}
                 >
                     Delet User
+                    <DeleteIcon className={styles.deleteIcon} />
                 </Button>
             </div>
         </div>

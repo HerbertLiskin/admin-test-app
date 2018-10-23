@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Button from '@material-ui/core/Button'
+
 import styles from './styles.scss'
 
 const propTypes = {
@@ -41,17 +43,19 @@ class AddUser extends React.Component {
                     type="file" 
                     onChange={this.fileChange} 
                 /> */}
-                <div 
-                    className={styles.button}
+                <Button 
+                    variant="contained" 
+                    color="primary"
+                    size="large" 
                     onClick={
                         () => {
                             this.props.createUser(this.state.value, this.state.selectedAvatar)
                         }
-                    }>
+                    }
+                >
                     Create User
                     {this.props.isFetching && (<div className={styles.preloader}></div>)}
-                </div>
-                
+                </Button>
             </div>
         )
     }
