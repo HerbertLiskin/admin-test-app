@@ -4,12 +4,12 @@ import {
   Link,
 } from 'react-router-dom'
 
-import styles from './style.scss'
+import './style.scss'
 import Routes from './Routes'
 
 const App = () => (
     <BrowserRouter>
-        <main className={styles.container}>
+        <main>
             <div>
                 <p>Admin app test</p>
             </div>
