@@ -16,6 +16,7 @@ const propTypes = {
         })
     ),
     usersIsFetching: PropTypes.bool,
+    createUserIsFetching: PropTypes.bool,
     fetchUsers: PropTypes.func.isRequired,
     deletUser: PropTypes.func.isRequired,
     createUser: PropTypes.func.isRequired,
@@ -52,7 +53,10 @@ export class Root extends React.PureComponent {
     render() {
         return (
             <div>
-                <AddUser createUser={this.props.createUser}/>
+                <AddUser 
+                    isFetching={this.props.createUserIsFetching}
+                    createUser={this.props.createUser}
+                />
                 {this.renderUsers()}
             </div>
             

@@ -10,16 +10,6 @@
 	align-content: stretch;
 }
 
-.button {
-    margin: 0 0 0 15px;
-    padding: 0 15px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    background: #386777;
-    color: #fff;
-}
-
 .input {
     border: none;
     height: 40px;
@@ -31,4 +21,26 @@
         outline: none;
         background-color: #fdffb9;
     }
+}
+
+.button {
+    position: relative;
+    cursor: pointer;
+    margin: 0 0 0 15px;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    background: #4090ab;
+    color: #fff;
+}
+
+
+.preloader {
+    position: absolute;
+    top: 0;
+    right: -45px;
+    width: 40px;
+    height: 40px;
+    background-image: url(./images/preloader-small.gif);
 }

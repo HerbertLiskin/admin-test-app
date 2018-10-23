@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './AddUser.scss'
+import styles from './styles.scss'
 
 const propTypes = {
+    isFetching: PropTypes.bool,
     createUser: PropTypes.func.isRequired,
 }
 
@@ -48,7 +49,9 @@ class AddUser extends React.Component {
                         }
                     }>
                     Create User
+                    {this.props.isFetching && (<div className={styles.preloader}></div>)}
                 </div>
+                
             </div>
         )
     }

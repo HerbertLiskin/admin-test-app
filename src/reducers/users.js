@@ -3,6 +3,7 @@ import {
     SET_USER,
     SET_USER_FETCHING,
     SET_USERS_FETCHING,
+    SET_CREATE_USER_FETCHING,
     REMOVE_USER,
     ADD_USER,
 } from '../actions/users'
@@ -15,6 +16,7 @@ let initialState = {
     user: null,
     userIsFetching: true,
     usersIsFetching: true,
+    createUserIsFetching: false,
 }
 
 function users(state = initialState, action) {
@@ -42,7 +44,11 @@ function users(state = initialState, action) {
                 ...state,
                 usersIsFetching: action.usersIsFetching,
             }
-
+        case SET_CREATE_USER_FETCHING:
+            return {
+                ...state,
+                createUserIsFetching: action.createUserIsFetching,
+            }
         case ADD_USER:
             users = cloneDeep(state.users)
             users.unshift(action.user)

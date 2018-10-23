@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     return {
         users: state.users.users,
         usersIsFetching: state.users.usersIsFetching,
+        createUserIsFetching: state.users.createUserIsFetching,
     }
 }
 

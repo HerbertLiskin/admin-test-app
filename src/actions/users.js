@@ -4,6 +4,7 @@ export const SET_USERS = 'SET_USERS'
 export const SET_USER = 'SET_USER'
 export const SET_USER_FETCHING = 'SET_USER_FETCHING'
 export const SET_USERS_FETCHING = 'SET_USERS_FETCHING'
+export const SET_CREATE_USER_FETCHING = 'SET_CREATE_USER_FETCHING'
 export const REMOVE_USER = 'REMOVE_USER'
 export const ADD_USER = 'ADD_USER'
 
@@ -60,6 +61,7 @@ export function deletUser(id) {
 
 export function createUser(val, avatar) {
     return (dispatch) => {
+        dispatch(setCreateUserFetching(true))
         fetch({
             query: `mutation CreateUser($input: CreateUserInput!)  {
                 CreateUser(input: $input) {
@@ -74,6 +76,7 @@ export function createUser(val, avatar) {
             },
         }).then((response) => {
             dispatch(addUser(response.data.CreateUser))
+            dispatch(setCreateUserFetching(false))
         })
     }
 }
@@ -106,6 +109,15 @@ export function setUsersFetching(usersIsFetching) {
         usersIsFetching,
     }
 }
+
+export function setCreateUserFetching(createUserIsFetching) {
+    return {
+        type: SET_CREATE_USER_FETCHING,
+        createUserIsFetching,
+    }
+}
+
+SET_CREATE_USER_FETCHING
 
 export function setUser(user) {
     return {
