@@ -40,7 +40,13 @@ module.exports = {
     path.join(__dirname, '/src/index.js'),
   ],
   optimization: {
-    minimizer: [new UglifyJsPlugin()]
+    minimizer: [
+      new UglifyJsPlugin(
+        {
+          sourceMap: true,
+        }
+      )
+    ]
   },
   module: {
     rules: [
@@ -73,7 +79,7 @@ module.exports = {
   [
     HTMLWebpackPluginConfig,
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
   ] :
   [
     HTMLWebpackPluginConfig, 

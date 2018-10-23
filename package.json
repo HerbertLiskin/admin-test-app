@@ -5,8 +5,8 @@
   "author": "Liskin",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack -p",
+    "start": "NODE_ENV=development webpack-dev-server --mode development",
+    "build": "NODE_ENV=production  webpack --mode production -p",
     "test": "jest"
   },
   "jest": {
