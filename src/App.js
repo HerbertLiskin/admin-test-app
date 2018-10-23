@@ -4,7 +4,9 @@ import {
   Link,
 } from 'react-router-dom'
 
-import './style.scss'
+import './styles/reset.scss'
+import styles from './styles/styles.scss'
+
 import Routes from './Routes'
 
 const App = () => (
@@ -16,7 +18,9 @@ const App = () => (
             <ul>
                 <li><Link to="/">Root</Link></li>
             </ul>
-            <Routes />
+            <div className={styles.layout}>
+                <Routes />
+            </div>
         </main>
     </BrowserRouter>
 )

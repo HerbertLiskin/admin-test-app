@@ -17,7 +17,6 @@ const Users = ({ users, deletUser }) => {
         return (
             <Grid item xs={12} sm={4} md={3} lg={2} key={`user-${user.ID}`}>
                 <UserCard 
-                    
                     id={user.ID}
                     login={user.Login}
                     avatarURL={user.AvatarURL}
