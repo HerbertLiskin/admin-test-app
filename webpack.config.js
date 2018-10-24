@@ -15,17 +15,6 @@ const DefinePluginConfig = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify('production'),
 });
 
-// const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
-//   beautify: false,
-//   mangle: {
-//     screw_ie8: true,
-//   },
-//   compress: {
-//     screw_ie8: true,
-//   },
-//   comments: false,
-// });
-
 module.exports = {
   devServer: {
     historyApiFallback: true,
@@ -82,11 +71,9 @@ module.exports = {
   [
     HTMLWebpackPluginConfig,
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin(),
   ] :
   [
     HTMLWebpackPluginConfig, 
-    DefinePluginConfig, 
-    // UglifyJsPluginConfig
+    DefinePluginConfig,
   ],
 };

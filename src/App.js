@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   BrowserRouter,
   Link,
@@ -19,7 +19,7 @@ import styles from './styles/styles.scss'
 import Routes from './Routes'
 
 
-class App extends Component {
+class App extends PureComponent {
     constructor(props) {
         super(props) 
 
@@ -32,6 +32,7 @@ class App extends Component {
 
         this.toggleDrawer = this.toggleDrawer.bind(this)
     } 
+    
     toggleDrawer(side, open) {
         this.setState({
             [side]: open,
