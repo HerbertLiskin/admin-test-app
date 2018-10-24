@@ -28,6 +28,8 @@ const DefinePluginConfig = new webpack.DefinePlugin({
 
 module.exports = {
   devServer: {
+    historyApiFallback: true,
+    contentBase: './',
     host: 'localhost',
     port: '3000',
     hot: true,
@@ -74,6 +76,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.join(__dirname, '/build'),
+    publicPath: '/',
   },
   plugins: dev ?
   [
