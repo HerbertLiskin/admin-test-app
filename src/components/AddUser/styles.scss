@@ -1,26 +1,15 @@
 .container {
-    background: #ff6969;
-    margin: 0 0 60px 0;
-    padding: 20px;
+    margin: 30px 0;
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
-	align-items: center;
+	align-items: baseline;
 	align-content: stretch;
 }
 
 .input {
-    border: none;
-    height: 40px;
-    padding: 0 15px;
-    font-size: 18px;
-    transition: background-color .3s;
-
-    &:focus {
-        outline: none;
-        background-color: #fdffb9;
-    }
+    margin: 0 25px 0 0!important;
 }
 
 .button {

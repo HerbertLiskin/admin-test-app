@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 import styles from './styles.scss'
 
@@ -34,15 +35,13 @@ class AddUser extends React.Component {
     render() {
         return(
             <div className={styles.container}>
-                <input 
+                <TextField
+                    id="standard-dense"
+                    label="Name"
                     className={styles.input}
-                    value={this.state.value}
                     onChange={this.handleChange}
+                    value={this.state.value}
                 />
-                {/* <input 
-                    type="file" 
-                    onChange={this.fileChange} 
-                /> */}
                 <Button 
                     variant="contained" 
                     color="primary"
